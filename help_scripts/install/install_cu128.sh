@@ -7,6 +7,12 @@ export PIP_EXTRA_INDEX_URL="https://pypi.ngc.nvidia.com https://download.pytorch
 
 # install sam3d-objects and core dependencies
 pip install -e '.[dev]'
+
+# if newer than 9.0
+export TORCH_CUDA_ARCH_LIST="12.0"
+pip install ninja
+pip install -v --no-build-isolation -U xformers==0.0.31.post1
+
 pip install -e '.[p3d]' # pytorch3d dependency on pytorch is broken, this 2-step approach solves it
 
 # for inference
